@@ -8,27 +8,33 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Hub SectionHeaderClick="Hub_SectionHeaderClick" x:Name="MainHub">
+        <Hub x:Name="MainHub">
             <Hub.Header>
                 <Grid>
-                    <TextBlock Text="Hub Header"/>
+                    <TextBlock Text="Hub Header" x:Name="HubHeaderText"/>
                 </Grid>
             </Hub.Header>
             <HubSection Header="Hub Section One">
-                <HubSection.Background>
-                    <ImageBrush ImageSource="/Assets/gyro.png" Stretch="Uniform"></ImageBrush>
-                </HubSection.Background>
                 <DataTemplate>
-                    <ListView Loaded="LoadListView" SelectionMode="Single">
+                    <ListView Loaded="LoadListView" SelectionMode="Single" Background="Gray" SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Measurement}"></TextBlock>
-                                    <TextBlock>Report:</TextBlock>
-                                    <TextBlock Text="{Binding Report}"></TextBlock>
-                                    <TextBlock>Interval:</TextBlock>
-                                    <TextBlock Text="{Binding Interval}"></TextBlock>
-                                </StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="115"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding ImagePath}" Width="20" Height="20" Margin="5" Grid.Column="0"></Image>
+                                    <TextBlock Text="{Binding Measurement}" Margin="5" Grid.Column="1"></TextBlock>
+                                    <TextBlock Margin="5" Grid.Column="2">Report:</TextBlock>
+                                    <TextBlock Text="{Binding Report}" Margin="5" Grid.Column="3"></TextBlock>
+                                    <TextBlock Margin="5" Grid.Column="4">Interval:</TextBlock>
+                                    <TextBlock Text="{Binding Interval}" Margin="5" Grid.Column="5"></TextBlock>
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -39,8 +45,11 @@
                     <ImageBrush ImageSource="/Assets/magnet.png" Stretch="Uniform"></ImageBrush>
                 </HubSection.Background>
                 <DataTemplate>
-                    <Frame x:Name="HS2Frame"></Frame>
-                </DataTemplate>
+
+                    <Frame x:Name="FramePage" Content="{Binding SelectedPage, Mode=TwoWay}"></Frame> <!--FIND A WAY TO BIND-->
+                </DataTemplate>   
+                    
+
             </HubSection>
             <HubSection Header="Hub Section Three">
                 <HubSection.Background>

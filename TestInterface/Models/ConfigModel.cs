@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace TestInterface.Models
 {
@@ -56,5 +57,9 @@ namespace TestInterface.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public string ImagePath { get; set; }
+
+        public Type PageType { get; set; }
     }
 }

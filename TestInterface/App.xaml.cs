@@ -72,13 +72,13 @@ namespace TestInterface
 //#endif
 //            SensorReader.Init();
 
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Usage", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Temperature", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Pressure", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Humidity", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Magnetometer", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Accelerometer", Report = 1, Interval = 1000 });
-            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Gyroscope", Report = 1, Interval = 1000 });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Usage", Report = 1, Interval = 1000, ImagePath="Assets/Finger.png", PageType=typeof(MainPage) });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Temperature", Report = 1, Interval = 1000, ImagePath= "Assets/whitethermometer.png", PageType = typeof(TemperaturePage) });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Pressure", Report = 1, Interval = 1000, ImagePath= "Assets/pressurex.png", PageType = typeof(PressurePage) });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Humidity", Report = 1, Interval = 1000, ImagePath= "Assets/humidity.png", PageType = typeof(HumidityPage) });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Magnetometer", Report = 1, Interval = 1000, ImagePath="Assets/magnet.png" });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Accelerometer", Report = 1, Interval = 1000,ImagePath="Assets/speedometer.png" });
+            MeasurementConfiguration.Add(new ConfigModel { Measurement = "Gyroscope", Report = 1, Interval = 1000, ImagePath="Assets/gyro.png" });
 
 
             MaxNrBfrMaintenance = 1;
