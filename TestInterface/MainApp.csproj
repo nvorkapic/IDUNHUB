@@ -103,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData.cs" />
+    <Compile Include="HubInterface.xaml.cs">
+      <DependentUpon>HubInterface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\DisplayOptionModel.cs" />
     <Compile Include="Models\InitModel.cs" />
@@ -203,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HubInterface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AdditionalApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
