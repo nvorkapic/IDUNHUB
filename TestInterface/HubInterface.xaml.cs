@@ -35,9 +35,9 @@ namespace TestInterface
             listView.ItemsSource = (Application.Current as App).MeasurementConfiguration;
         }
 
-        private void ListSelectionChange(object sender, SelectionChangedEventArgs e)
+        private void Hub_SectionHeaderClick(object sender, HubSectionHeaderClickEventArgs e)
         {
-    
+            MainHub.ScrollToSection(MainHub.Sections[3]);
         }
     }
 
