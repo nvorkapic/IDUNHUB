@@ -7,7 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    <Hub>
+        <HubSection x:Name="HubSectionNavigation">
+            <DataTemplate>
+                <ListView>
+                    <TextBlock>Initialization                   
+                    </TextBlock>
+                </ListView>
+            </DataTemplate>
+        </HubSection>
+        <HubSection x:Name="HubSectionMain">
+            <DataTemplate>
+                <Frame x:Name="FrameHubSectionMain"></Frame>
+            </DataTemplate>
+        </HubSection>
+        <HubSection x:Name="HubSectionSecondary">
+            <DataTemplate>
+                <Frame x:Name="FrameHubSectionSecondary"></Frame>
+            </DataTemplate>
+        </HubSection>
+    </Hub>
 </Page>

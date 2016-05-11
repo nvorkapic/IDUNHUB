@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="TestInterface.Pages.ConfigEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TestInterface.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    mc:Ignorable="d" Loaded="PageOnLoad">
+
+    <!--<Page.Resources>
+        <local:EnableToColorConverter x:Key="ETC"/>
+    </Page.Resources>-->
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <!--<ListBox Height="200" x:Name="ListBoxAll">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Measurement}"></TextBlock>
+                            <Rectangle Width="20" Height="20" Fill="{Binding Converter={StaticResource ETC}}"></Rectangle>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>-->
+            <StackPanel Margin="20,10,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="ImageTitle" MaxHeight="25" MaxWidth="25"></Image>
+                    <TextBlock FontSize="25" Text="{Binding Measurement}"></TextBlock>
+                    <TextBlock FontSize="25" Margin="10,0,0,0">Configuration</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0,5,0,0">Enabled:</TextBlock>
+                    <CheckBox x:Name="EnableConfig" IsChecked="{Binding Enabled, Mode=TwoWay}" Margin="10,0,0,0"/>
+                    <Button x:Name="DefBtn" IsEnabled="{Binding Enabled, Mode=TwoWay}" Click="LoadDefaults">Default</Button>
+                </StackPanel>
+                <StackPanel x:Name="ConfigurationPanel" Loaded="PanelOnLoad">
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Interval Settings</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,5,10,0">Interval Value:</TextBlock>
+                            <TextBox x:Name="IntervalSetting" InputScope="Number" Text="{Binding Interval,Mode=TwoWay}"/>
+                            <TextBlock Margin="10,5,0,0">miliseconds.</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Threshold</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,5,0,0">Enabled:</TextBlock>
+                            <CheckBox x:Name="EnableUsageThreshold" IsChecked="{Binding Threshold, Mode=TwoWay}" Margin="10,0,0,0"></CheckBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,5,5,0">Threshold Value:</TextBlock>
+                            <TextBox x:Name="ThresholdBottom" IsEnabled="{Binding Threshold,Mode=TwoWay}" Text="{Binding ThresholdBottomValue, Mode=TwoWay}" LostFocus="SaveDataBoxBot" InputScope="Number"></TextBox>
+                            <TextBox x:Name="ThresholdCeiling" IsEnabled="{Binding Threshold,Mode=TwoWay}" Text="{Binding ThresholdCeilingValue, Mode=TwoWay}" LostFocus="SaveDataBoxCei" InputScope="Number"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold">Reporting</TextBlock>
+                        <StackPanel>
+                            <RadioButton GroupName="Reporting" IsChecked="{Binding ReportValue1, Mode=TwoWay}" x:Name="FirstOptionReporting">Quick Report without Service Request</RadioButton>
+                            <RadioButton GroupName="Reporting" IsChecked="{Binding ReportValue2, Mode=TwoWay}">Quick Report with Service Request</RadioButton>
+                            <RadioButton GroupName="Reporting" IsChecked="{Binding ReportValue3, Mode=TwoWay}">Fault Report</RadioButton>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
